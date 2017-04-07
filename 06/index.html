@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>First VueJS Application - Two way bindings</title>
+        <script src="vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <input type="text" v-model="name"/>
+            <p>{{ name }}</p>
+        </div>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                   name: 'NickNaso'
+                }
+            })
+        </script>
+    </body>
+</html>

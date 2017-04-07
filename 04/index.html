@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>First VueJS Application - Template</title>
+        <script src="vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <h1 v-once>{{ title }}</h1>
+            <p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p>
+            <p v-html="finishedLink"></p>
+        </div>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    title: 'Hello World!',
+                    link: 'https://www.google.com',
+                    finishedLink: '<a href="https://www.google.com">Google</a>'
+                },
+                methods: {
+                    sayHello: function () {
+                        this.title = "Hello NickNaso!"
+                        return this.title
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

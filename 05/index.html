@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>First VueJS Application - Events</title>
+        <script src="vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+           <button v-on:click="increase(2, $event)">Click me</button>
+           <p>{{ counter }}</p>
+           <p v-on:mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }}</p>
+        </div>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    counter: 0,
+                    x: 0,
+                    y: 0
+                },
+                methods: {
+                    increase: function(step, evt) {
+                        this.counter += 2
+                    },
+                    updateCoordinates: function (evt) {
+                        this.x = evt.clientX
+                        this.y = evt.clientY
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

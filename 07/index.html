@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>First VueJS Application - Events</title>
+        <script src="vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+           <button v-on:click="counter++">Increase</button>
+           <button v-on:click="counter--">Decrease</button>
+           <button v-on:click="secondCounter++">Increase Second</button>
+           <p>Counter: {{ counter }} | {{ secondCounter }}</p>
+           <p>Result: {{ result() }} | {{ output }}</p>
+        </div>
+        <script>
+            'use strict'
+
+            new Vue({
+                el: '#app',
+                data: {
+                    counter: 0,
+                    secondCounter: 0
+                },
+                computed: {
+                    output() {
+                        console.log('Computed')
+                        return this.secondCounter > 5 ? 'Greater 5' : 'Smaller 5'
+                    }
+                },
+                watch: {
+                    counter(value) {
+                        setTimeout(() => {
+                            this.counter = 0
+                        }, 2000)
+                    }
+                },
+                methods: {
+                    /*increase: function(step, evt) {
+                        this.counter++
+                        this.result = this.counter > 5 ? 'Greater 5' : 'Smaller 5'
+                    },
+                    decrease: function(step, evt) {
+                        this.counter--
+                        this.result = this.counter > 5 ? 'Greater 5' : 'Smaller 5'
+                    },*/
+                    result() {
+                        console.log('Method')
+                        return this.counter > 5 ? 'Greater 5' : 'Smaller 5'
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
